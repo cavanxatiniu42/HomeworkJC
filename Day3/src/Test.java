@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         ArrayList<Student> studentList = new ArrayList<>();
-        File file = new File("C:\\Users\\Thu Thuy Nguyen\\IdeaProjects\\HomeworkJC\\Day3\\src\\text.bin");
+        File file = new File("text.dat");
         file.createNewFile();
      //   file.delete();
         Student student = new Student(1, "thuy");
        StudentManage studentManage = new StudentManage(studentList);
         studentManage.addStudent(student);
         StudentDataAccess studentDataAccess = new StudentDataAccess();
-        studentDataAccess.writeToBinaryFile(studentList,"C:\\Users\\Thu Thuy Nguyen\\IdeaProjects\\HomeworkJC\\Day3\\src\\text.bin" );
+        studentDataAccess.writeToBinaryFile(studentList,"text.dat" );
+        System.out.println(studentDataAccess.readFromBinaryFile("text.dat").toString());
     }
 }

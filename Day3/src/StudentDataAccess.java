@@ -20,7 +20,7 @@ public class StudentDataAccess {
         }
 
 //
-     public static List<Student> readFromBinaryFile(String path) throws IOException, ClassNotFoundException {
+     public List<Student> readFromBinaryFile(String path) throws IOException, ClassNotFoundException {
          File studentData = new File(path);
          ObjectInputStream inputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(studentData)));
 
@@ -39,16 +39,16 @@ public class StudentDataAccess {
              bufferedWriter.close();
          }
      }
-     public static List<Student> readFromTextFile (String path) throws FileNotFoundException {
-         File studentData = new File(path);
-         BufferedReader bufferedReader = new BufferedReader(new FileReader(studentData));
-         try {
-             List<Student> studentList = (List<Student>) bufferedReader.readLine();
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
-         return
-     }
+//     public static List<Student> readFromTextFile (String path) throws FileNotFoundException {
+//         File studentData = new File(path);
+//         BufferedReader bufferedReader = new BufferedReader(new FileReader(studentData));
+//         try {
+//             List<Student> studentList = (List<Student>) bufferedReader.readLine();
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+//         return
+//     }
 
     }
 
