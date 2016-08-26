@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 public class StudentManage {
     public ArrayList<Student> students = new ArrayList<>();
+    public StudentManage (ArrayList<Student> students){
+        this.students = students;
+    }
     public boolean addStudent(Student student){
         if (student.getID() >= 0){
             students.add(student);
@@ -44,5 +47,6 @@ public class StudentManage {
         }
         return result;
     }
+
 
 }
