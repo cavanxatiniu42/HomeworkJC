@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
@@ -27,11 +29,14 @@ public class StudentDataAccess {
          List<Student> studentList = (List<Student>)inputStream.readObject();
          return studentList;
      }
-     public static void writeToTextFile(List<Student> studentList, String path) throws IOException {
+     public void writeToTextFile(List<Student> studentList, String path) throws IOException {
          File studentData = new File(path);
          BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(studentData));
          try {
-             bufferedWriter.write(studentList.toString());
+             for (int i = 0; i <studentList.size() ; i++) {
+                bufferedWriter.write(studentList.get(i).toString());
+                 bufferedWriter.newLine();
+             }
          }catch (IOException e){
              e.printStackTrace();
          }
@@ -39,16 +44,23 @@ public class StudentDataAccess {
              bufferedWriter.close();
          }
      }
-//     public static List<Student> readFromTextFile (String path) throws FileNotFoundException {
-//         File studentData = new File(path);
-//         BufferedReader bufferedReader = new BufferedReader(new FileReader(studentData));
-//         try {
-//             List<Student> studentList = (List<Student>) bufferedReader.readLine();
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
-//         return
-//     }
+     public List<Student> readFromTextFile (String path) throws FileNotFoundException {
+         List<Student> listStudent = new ArrayList<>();
+         File studentData = new File(path);
+         BufferedReader bufferedReader = new BufferedReader(new FileReader(studentData));
+         while (true){
+             try {
+                 String student = bufferedReader.readLine();
+                 String[] oneStudent = student.split(",");
+                 Student student1 = new Student(Integer.parseInt(oneStudent[0].replaceAll("[^0-9]","")), oneStudent[1].replaceAll("[^a-z]",""));
+                 listStudent.add(student1);
+                 return listStudent;
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+         }
+
+     }
 
     }
 
