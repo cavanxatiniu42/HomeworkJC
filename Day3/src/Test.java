@@ -14,7 +14,8 @@ public class Test {
 //        StudentDataAccess studentDataAccess = new StudentDataAccess();
 //        studentDataAccess.writeToTextFile(studentList,"text.txt" );
 //        System.out.println(studentDataAccess.readFromTextFile("text.txt").toString());
-        SplitFile splitFile = new SplitFile();
-        splitFile.splitFile("Bộ môn giáo dục thể chất.docx", 10);
+//        SplitFile splitFile = new SplitFile();
+//        splitFile.splitFile("Bộ môn giáo dục thể chất.docx", 10);
+
     }
 }
