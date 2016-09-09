@@ -10,7 +10,9 @@ public class Ex4 {
         Queue<Byte> byteQueue = new LinkedList<>();
         int c = 0;
         while (fileInputStream.read(bytesPerRead) != 0){
-            byteQueue.addAll(bytesPerRead);
+            for (int i = 0; i <bytesPerRead.length ; i++) {
+                byteQueue.add(bytesPerRead[i]);
+                c++;
             }
         }
         return c;
