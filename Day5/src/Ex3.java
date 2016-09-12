@@ -7,6 +7,7 @@ public class Ex3 {
     public ArrayList<Character> removeDuplicate(ArrayList<Character> list){
         Map<Character, Integer> newMap = new HashMap<>();
         for (char x : list){
+                System.out.println(newMap.get(x));
             if (newMap.containsKey(x)){
                 newMap.put(x, newMap.get(x)+1);
         } else {
@@ -19,5 +20,6 @@ public class Ex3 {
             newList.add(character);
         }
         return newList;
+//        newMap.get
     }
 }
